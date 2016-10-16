@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <!-- Start of creating a barchart. -->
+  <head>
+    <title>HTML5</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=650, user-scalable=yes">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script src="d3/d3.min.js"></script>
+ 
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+    <!-- move this into your css file -->
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Drawing with Data</h1>
+      </header> 
+      <script type="text/javascript">
+
+        w = 500
+        h = 100
+        
+        var dataset = [];                         //Initialize empty array
+        for (var i = 0; i < 25; i++) {            //Loop 25 times
+            var newNumber = Math.random() * 30;   //New random number (0-30)
+            dataset.push(newNumber);              //Add new number to array
+        }
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var circles = svg.selectAll("circle")
+                         .data(dataset)
+                         .enter()
+                         .append("circle");
+            
+            circles.attr("cx", function(d, i) {
+                        return (i * 50) + 10;
+                    })
+                   .attr("cy", h/2)
+                   .attr("r", function(d) {
+                        return d;
+                   });
+
+      </script>
+   <!--  <div class="bar"></div> -->
+    </div>
+  </body>
+</html>
+
+<!--  -->

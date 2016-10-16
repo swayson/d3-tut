@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <!-- In this example, the general boilerplate importing the script is shown. -->
+  <head>
+    <title>HTML5</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=650, user-scalable=yes">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script src="d3/d3.min.js"></script>
+ 
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+    <link rel="stylesheet"  href="css/style.css">
+    <!-- move this into your css file -->
+ 
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>HTML5 Boilerplate</h1>
+      </header> 
+      
+      <script type="text/javascript">
+            // Your beautiful D3 code will go here
+            var dataset = [ 5, 10, 15, 20, 25 ];
+            
+            // Create a global variable
+            var dataset;
+            d3.csv("food.csv", function(error, data) {
+
+                    if (error) {  //If error is not null, something went wrong.
+                      console.log(error);  //Log the error.
+                    } else {      //If no error, the file loaded correctly. Yay!
+                      console.log(data);   //Log the data.
+
+                  //Include other code to execute after successful file load here
+                  dataset = data; // Assign to global variable
+                  generateVis();  // Functions used for when the csv is loaded.
+                  // hideLoadingMsg();
+              }
+
+            });
+      </script>
+    </div>
+  </body>
+</html>

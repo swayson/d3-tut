@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <!-- In this example, the general boilerplate importing the script is shown. -->
+  <head>
+    <title>HTML5</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=650, user-scalable=yes">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script src="d3/d3.min.js"></script>
+ 
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+    <link rel="stylesheet"  href="css/style.css">
+    <!-- move this into your css file -->
+ 
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>HTML5 Boilerplate</h1>
+      </header> 
+      
+      <script type="text/javascript">
+            var dataset = [ 5, 10, 15, 20, 25 ];
+            d3.select("body").selectAll("p")
+              .data(dataset)
+              .enter()
+              .append("p")
+              // Anonymous functions as call backs, which helps getting data.
+              .text(function(d) {return "New paragraph! " + d;})
+              .style("color", function(d) {return "red";})
+
+      </script>
+    </div>
+  </body>
+</html>
+
